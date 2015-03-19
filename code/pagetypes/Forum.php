@@ -991,6 +991,8 @@ class Forum_Controller extends Page_Controller {
 			if(isset($starting_thread) && $starting_thread) $this->notifyModerators($post, $thread, true);
 			else $this->notifyModerators($post, $thread);
 		}
+		
+		$this->extend('updateDoPostMessageForm', $data, $form);
 
 		return $this->redirect($post->Link());
 	}
